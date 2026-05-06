@@ -187,7 +187,8 @@ public class ContactBook
 
     private void ShowExitScreen()
     {
-        
+        Console.Clear();
+        Console.WriteLine("Thank you for using My Contact Book. Goodbye!");
     }
 
   private void PressEnterContinue()
@@ -271,8 +272,9 @@ public class ContactBook
 
     private string GetOptions(string prompt, string[] validOptions, string defaultOption)
     {
-        Console.WriteLine(prompt);
-        string option = Console.ReadLine()!;
+        string options = string.Join('/', validOptions);
+        Console.WriteLine(prompt + $" [{options}] ({defaultOption}) ");
+        string option = Console.ReadLine()!.ToUpper();
 
         if(string.IsNullOrWhiteSpace(option))
         {
@@ -282,8 +284,8 @@ public class ContactBook
         while(!validOptions.Contains(option))
         {
             Console.WriteLine("ERROR: Invalid option. Please try again.");
-            Console.WriteLine(prompt);
-            option = Console.ReadLine()!;
+            Console.WriteLine(prompt + $" [{options}] ({defaultOption}) ");
+            option = Console.ReadLine()!.ToUpper();
 
             if(string.IsNullOrWhiteSpace(option))
             {
