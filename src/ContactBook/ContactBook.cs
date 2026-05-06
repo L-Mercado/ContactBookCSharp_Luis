@@ -157,9 +157,26 @@ public class ContactBook
 
     private void ProcessInput(string input)
     {
-        
+        switch(input)
+        {
+             case NEXT_PAGE: NextPage(); break;
+             case PREV_PAGE: PrePage(); break;
+             case GOTO_PAGE: GotoPage(); break;
+             case PAGE_SIZE: PageSize(); break;
+             case CREATE_CONTACT: CreateContact(); break;
+             case REVIEW_CONTACT: ReviewContact(); break; 
+             case UPDATE_CONTACT: UpdateContact(); break;
+             case DELETE_CONTACT: DeleteContact(); break;
+             case FIND_CONTACT: FindContact(); break;
+             case ORDER_CONTACT: OrderContact(); break;
+             case DUPLICATE_CONTACT: DuplicateContact(); break;
+             case EXIT: Exit(); break;
+             default: break;
+
+        }
     }
 
+  
     private bool ConfirmExit()
     {
         return true;
@@ -186,4 +203,67 @@ public class ContactBook
         Console.ReadKey();
     }
 }
+      private void NextPage()
+    {
+        Console.WriteLine("Next Page");
+    }
+
+    private void PrePage()
+    {
+        Console.WriteLine("Prev Page");
+
+    }
+
+    private void GotoPage()
+    {
+       Console.WriteLine("Goto Page");
+    }
+
+    private void PageSize()
+    {
+        Console.WriteLine("Page Size");
+    }
+
+    private void CreateContact()
+    {
+        Console.WriteLine("Create Contact");
+    }
+
+    
+
+    private void ReviewContact()
+    {
+        Console.WriteLine("Review Contact");
+    }
+
+    private void UpdateContact()
+    {
+        Console.WriteLine("Update Contact");
+    }
+
+    private void DeleteContact()
+    {
+        Console.WriteLine("Delete Contact");
+    }
+
+    private void FindContact()
+    {
+       Console.WriteLine("Find Contact");
+    }
+
+    private void OrderContact()
+    {
+        Console.WriteLine("Order Contact");
+    }
+
+    private void DuplicateContact()
+    {
+        Console.WriteLine("Duplicate Contact");
+    }
+
+    private void Exit()
+    {
+        Console.WriteLine("Exit");
+    }
+
 }
