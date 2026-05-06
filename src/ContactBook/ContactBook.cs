@@ -40,6 +40,7 @@ public class ContactBook
     private List<Contact> allContacts;
     private int page;
     private int size;
+    private bool isExit;
 
 
     public ContactBook(List<Contact> contacts = null!)
@@ -47,6 +48,7 @@ public class ContactBook
         allContacts = (contacts == null) ? new List<Contact>() : contacts;
         page = 1;
         size = 10;
+        isExit = false;
     }
 
     public void Start()
@@ -126,6 +128,11 @@ public class ContactBook
                 (i + 1), c.GetFName(), c.GetLName(), c.GetPhone(), c.GetEmail());
             }
 
+            for(int i = 0; i < size - e + s; i++)
+            {
+                Console.WriteLine();
+            }
+
             Console.WriteLine();
             Console.WriteLine($"Page {page} of {pageCount} ({s + 1}-{e} of {n})");
         }
@@ -189,7 +196,7 @@ public class ContactBook
   
     private bool ConfirmExit()
     {
-        return Confirm("Do you want to exit?", NO);
+        return (isExit) ? isExit = Confirm("Do you want to exit?", NO) : false;
     }
 
     private void ShowExitScreen()
@@ -234,7 +241,12 @@ public class ContactBook
 
     private void GotoPage()
     {
-        Console.WriteLine("Goto Page");
+        GotoPage(allContacts, ref page, size);
+    }
+
+    private void GotoPage(List<Contact> contacts, ref int page, int size)
+    {
+        page = GetInt("Enter page", 1, PageCount(contacts, size));
     }
 
     private void PageSize()
@@ -281,7 +293,25 @@ public class ContactBook
 
     private void Exit()
     {
-        Console.WriteLine("Exit");
+        isExit = true;
+    }
+
+    private int GetInt(string prompt, int min, int max)
+    {
+         string options = $"{min} - {max}";
+
+        Console.WriteLine(prompt + $" [{options}] ");
+        string answer = Console.ReadLine()!;
+        int value;
+
+        while(!int.TryParse(answer, out value) || value < min || value > max)
+        {
+            Console.WriteLine("ERROR: Invalid option. Please try again.");
+            Console.WriteLine(prompt + $" [{options}] ");
+            answer = Console.ReadLine()!;
+        }
+
+        return value;
     }
 
     private string GetOption(string prompt, string[] validOptions, string defaultOption)
