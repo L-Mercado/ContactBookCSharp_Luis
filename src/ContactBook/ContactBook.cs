@@ -251,7 +251,14 @@ public class ContactBook
 
     private void PageSize()
     {
-        Console.WriteLine("Page Size");
+        PageSize(ref page, size);
+    }
+
+    private void PageSize(ref int page, int size)
+    {
+        int max = Console.WindowHeight - 10;
+        size = GetInt("Enter page size", 1, max);
+        page = 1;
     }
 
     private void CreateContact()
