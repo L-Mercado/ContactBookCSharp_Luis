@@ -290,13 +290,35 @@ public class ContactBook
         {
             Console.WriteLine("Operation cancelled: Contact not created.");
         }
+
+        PressEnterContinue();
     }
 
     
-
-    private void ReviewContact()
+ private void ReviewContact()
     {
+        int index = GetInt("Enter index", 1, allContacts.Count) - 1;
+
+        Console.Clear();
+        ReviewContact(index);
+        PressEnterContinue();
+    }
+    private void ReviewContact(int index)
+    {
+        Contact c = allContacts[index];
+
+        
+        Console.WriteLine(new string('#', 80));
         Console.WriteLine("Review Contact");
+        Console.WriteLine(new string('#', 80));
+        Console.WriteLine();
+
+        Console.WriteLine($"First name: {c.GetFName}");
+        Console.WriteLine($" Last name: {c.GetLName}");
+        Console.WriteLine($"     Phone: {c.GetPhone}");
+        Console.WriteLine($"     Email: {c.GetEmail}");
+
+        Console.WriteLine();
     }
 
     private void UpdateContact()
