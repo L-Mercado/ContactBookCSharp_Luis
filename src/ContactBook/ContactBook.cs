@@ -123,6 +123,15 @@ public class ContactBook
 
     private void ShowInputOptions()
     {
+        string inputOptions = "" 
+        + $"[{NEXT_PAGE}] Next Page | [{CREATE_CONTACT}] Create Contact | [{DELETE_CONTACT}] Delete Contact | [{DUPLICATE_CONTACT}] Duplicate Contact\n"
+        + $"[{PREV_PAGE}] Prev Page | [{REVIEW_CONTACT}] Review Contact | [{FIND_CONTACT}] Find Contacts | [{PAGE_SIZE           }] Change Page Size\n" 
+        + $"[{GOTO_PAGE}] Prev Page | [{UPDATE_CONTACT}] Update Contact | [{ORDER_CONTACT}] Order Contacts | [{EXIT              }] Exit\n"
+        + $"\n> ";
+
+        Console.WriteLine();
+        Console.Write(inputOptions);
+        
         
     }
 
