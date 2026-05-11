@@ -100,6 +100,8 @@ public static class ContactSeed
                 new Contact ("Zoe", "Flores", "646-555-4567", "zoe.flores@icloud.com"),
                 new Contact ("Isaac", "Washington", "212-555-5678", "isaac.washington@protonmail.com"),
                 new Contact ("Anna", "Butler", "310-555-6789", "anna.butler@gmail.com"),
+                new Contact ("Ann", "Butler", "310-555-6789", "anna.butler@gmail.com"),
+                new Contact ("Owen", "Simmons", "415-555-7890", "owen.simmons@yahoo.com"),
                 new Contact ("Owen", "Simmons", "415-555-7890", "owen.simmons@yahoo.com"),
                 new Contact ("Mia", "Foster", "617-555-8901", "mia.foster@hotmail.com"), // Missing phone
     };
